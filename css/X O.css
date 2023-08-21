@@ -1,0 +1,340 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pacifico', cursive;
+    transition: 0.9s ease;
+}
+:root {
+    --mainFont : 'Bahianita', cursive;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 150vh;
+    overflow: hidden;
+    width: 100%;
+    background: pink;
+}
+.back {
+    display: block;
+    padding: 5px 20px;
+    border-radius: 15%;
+    background: orange;
+    font-size: 40px;
+    position: absolute;
+    left: 35px;
+    top: 35px;
+    color: white;
+    font-family: var(--mainFont);
+    letter-spacing: 4px;
+    opacity: 0;
+    cursor: pointer;
+}
+.back.active {
+    opacity: 1;
+}
+.open {
+    font-family: var(--mainFont);
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+    transform: translateY(0px);
+    text-align: center;
+}
+.open.active{
+    transform: translateY(-110%);
+}
+.open h1 {
+    font-family: var(--mainFont);
+    font-size: 80px;
+}
+.open .content {
+    display: flex;
+    width: 100%;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+.open .content .child {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 20px;
+}
+.open .content .child h3{
+    font-family: var(--mainFont);
+    font-size: 45px;
+    transition: 0.2s ease;
+}
+.open .content .child h3.active{
+    color: red;
+    text-shadow: 0 0 6px red;
+}
+.open .content .child input {
+    font-family: var(--mainFont);
+    padding: 10px 35px;
+    font-size: 30px;
+    border-radius: 30px;
+    border: none;
+    background: #5f016a;
+    color: white;
+    letter-spacing: 4px;
+}
+.open .content .child input::placeholder {
+    color: rgb(255, 255, 255, 0.5);
+}
+.open .content .content:last-of-type {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+.open .content .content:last-of-type button{
+    padding: 10px 70px;
+    background: #5f016a;
+    border-radius: 10%;
+    color: white;
+    font-family: var(--mainFont);
+    font-size: 35px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    margin-top: -25px;
+    font-weight: bold;
+}
+.open .content .content:last-of-type button:hover {
+    background: #eee;
+    color: #5f016a;
+    border: white solid 1px;
+}
+input:focus {
+    outline: none;
+}
+/*###########################################################3*/
+.star{
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 0 10px #eee;
+    border-radius: 100%;
+    position: relative;
+    background-size: cover;
+    animation: spin 4s  linear infinite;
+}
+.deco.main {
+    width: 100px;
+    height: 100px;
+    background: #ffae00;
+    border-radius: 100%;
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    z-index: 5;
+}
+.deco:not(.deco.main) {
+    width: 60px;
+    height: 60px;
+    background: #ffae00;
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0 0 200px #e7da08;
+    animation: shadow 2s ease alternate infinite ;
+
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes shadow {
+    from {
+        box-shadow: none;
+    }
+    to {
+        box-shadow: 0 0 200px 10px #e7da08;
+    }
+}
+.deco:nth-child(1){
+    right: 39px;
+    transform: rotate(96deg) skew(10deg, 10deg);
+    top: 46px;
+}
+.deco:nth-child(2){
+    bottom: 37px;
+    left: 58px;
+    transform: rotate(62deg) skew(10deg, 10deg);
+}
+.deco:nth-child(4){
+    transform: rotate(-43deg) skew(10deg, 10deg);
+    top: 70px;
+    left: 29px;
+}
+.deco:nth-child(5){
+    z-index: 1;
+    bottom: 48px;
+    right: 40px;
+    transform: rotate(-7deg) skew(10deg, 10deg);
+
+}
+.deco:nth-child(6) {
+    transform: rotate(29deg) skew(10deg, 10deg);
+    top: 33px;
+    left: 58px;
+} 
+
+/*###########################################################3*/
+
+
+
+
+
+
+
+
+
+
+.container {
+    position: relative;
+    bottom: -150%;
+}
+.container.active {
+    bottom: 40%;
+}
+.parent {
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: repeat(3 , calc(100% / 3));
+    grid-template-rows: repeat(3 , calc(100% / 3));
+    background-color: white;
+    border: 2px solid pink;
+}
+.parent .son { 
+    border: 2px solid pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+    filter: invert(0);
+    cursor: pointer;
+}
+.son:hover {
+    background: rgb(0,0,0,0.3);
+}
+.parent.active {
+    filter: invert(1);
+}
+.parent .son div.active {
+    padding: 0 25px;
+    border-radius: 100%;
+    background: darkorange;
+}
+.cover {
+    width: 400px;
+    height: 400px;
+    background: rgb(0,0,0,0.75);
+    position: absolute;
+    display: none;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 70px;
+    font-family: var(--mainFont);
+}
+.cover.active {
+    display: flex;
+}
+.reset {
+    position: absolute;
+    left: -55%;
+    top: 40%;
+    display: block;
+    background: #5f016a;
+    padding: 5px 20px;
+    font-size: 40px;
+    border-radius: 20%;
+    color: white;
+    font-family: var(--mainFont);
+    letter-spacing: 4px;
+    cursor: pointer;
+}
+.reset:hover {
+    background: black;
+    color: white;
+}
+.user {
+    position: absolute;
+    right: -60%;
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: space-between;
+    font-size: 40px;
+    align-items: center;
+}
+.user h2 {
+    font-family: var(--mainFont);
+    letter-spacing: 3px;
+}
+
+
+
+@media (min-width : 481px ) and (max-width : 812px) {
+    .star {
+        display: none;
+    }
+    .open {
+        justify-content: space-evenly;
+    }
+    .user {
+        right: 25%;
+        top: -43%;
+        width: 35%;
+        font-size: 30px;
+        height: 40%;
+    }
+    .reset {
+        left: calc(50% - 60px);
+        bottom: -17%;
+        top:unset;
+    }
+}
+@media (max-width : 480px) {
+    .star {
+        display: none;
+    }
+    .open {
+        justify-content: space-evenly;
+    }
+    .user {
+        right: 15%;
+        top: -60%;
+        width: 35%;
+        justify-content: center;
+        font-size: 25px;
+    }
+    .parent {
+        width: 300px;
+        height: 300px;
+    }
+    .cover {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+    }
+    .reset {
+        left: calc(50% - 60px);
+        bottom: -20%;
+        top: unset;
+    }
+}
