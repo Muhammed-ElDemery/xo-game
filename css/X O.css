@@ -314,7 +314,7 @@ input:focus {
         display: none;
     }
     .open {
-        justify-content: space-evenly;
+        justify-content: center;
     }
     .user {
         right: 15%;
